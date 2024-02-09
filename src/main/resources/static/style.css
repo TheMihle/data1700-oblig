@@ -1,0 +1,57 @@
+body {
+    font-family: Verdana, sans-serif;
+    background: #93b6f3;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    grid-column: 2;
+}
+
+main h2 {
+    min-width: 450px;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+    margin: 2%;
+}
+
+label {
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 7px;
+}
+
+input {
+    padding: 0.2em;
+    border-radius: 7px;
+    width: 50%;
+}
+
+select {
+    padding: 0.2em;
+    border-radius: 7px;
+    width: 50%;
+}
+
+button {
+    margin: 7px;
+    padding: 0.2em;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(80%);
+}
+
+button:active{
+    filter: brightness(60%);
+}
