@@ -30,10 +30,12 @@
             <input type="text" id="last-name"  placeholder="Last Name" required>
         </label>
         <label> Phone Number
-            <input type="text" id="phone-number" placeholder="9876432" required maxlength="8" minlength="8" pattern="[0-9]+">
+            <input type="text" id="phone-number" placeholder="9876432" required
+                   pattern="[0-9]+" maxlength="8" minlength="8">
         </label>
         <label> Email
-            <input type="text" id="email" placeholder="name@example.com" required pattern=".+@[A-Za-z0-9]+\..+">
+            <input type="text" id="email" placeholder="name@example.com" required
+                   pattern=".+@[A-Za-z0-9]+\..+" title="Must be a valid email address, name@example.com">
         </label>
         <button type="submit" id="summit-order">Order</button>
     </form>
