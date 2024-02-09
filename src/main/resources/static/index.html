@@ -30,7 +30,7 @@
             <input type="text" id="last-name"  placeholder="Last Name" required>
         </label>
         <label> Phone Number
-            <input type="text" id="phone-number" placeholder="9876432" required pattern="[0-9]{8}">
+            <input type="text" id="phone-number" placeholder="9876432" required maxlength="8" minlength="8" pattern="[0-9]+">
         </label>
         <label> Email
             <input type="text" id="email" placeholder="name@example.com" required pattern=".+@[A-Za-z0-9]+\..+">
@@ -38,6 +38,7 @@
         <button type="submit" id="summit-order">Order</button>
     </form>
 
+<!--    Area to show all orders and button delete them-->
     <section class="output-area">
         <h2>
         All Orders

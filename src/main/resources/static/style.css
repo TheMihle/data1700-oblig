@@ -16,7 +16,7 @@ main h2 {
     width: 100%;
 }
 
-.form {
+form {
     display: flex;
     flex-direction: column;
     min-width: 450px;
