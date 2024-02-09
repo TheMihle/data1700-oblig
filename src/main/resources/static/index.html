@@ -10,7 +10,8 @@
 <main>
     <h1>Order cinema tickets</h1>
 
-    <form class="form">
+<!--    return false to stop the page from refreshing -->
+    <form class="form" onsubmit="summitOrder(); return false">
         <label for="movie">Movie:
         <select id="movie">
             <option>Interstellar</option>
@@ -34,7 +35,7 @@
         <label> Email
             <input type="text" id="email" placeholder="name@example.com" required>
         </label>
-        <button type="submit" id="summit-order" onclick="summitOrder()">Order</button>
+        <button type="submit" id="summit-order">Order</button>
     </form>
 
     <section class="output-area">
