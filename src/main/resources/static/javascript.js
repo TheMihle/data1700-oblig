@@ -1,5 +1,4 @@
 
-
 let orders = [];
 function summitOrder() {
 
@@ -12,16 +11,20 @@ function summitOrder() {
        phoneNumber : document.getElementById("phone-number").value,
        email : document.getElementById("email").value
     }
-
-    console.log(order);
-
-
     orders.push(order);
 
+    // Debug
+    console.log(order);
+
+    // Writes array to website
     document.getElementById("ticket-list").innerHTML = createOrderTable(orders);
 
-
     // Clear input fields
+    clearInputs()
+}
+
+// Clear input fields
+function clearInputs() {
     document.getElementById("number").value = "";
     document.getElementById("first-name").value = "";
     document.getElementById("last-name").value = "";
@@ -29,6 +32,7 @@ function summitOrder() {
     document.getElementById("email").value = "";
 }
 
+// Deletes orders in array
 function deleteOrders() {
     orders = [];
     document.getElementById("ticket-list").innerHTML = "";
@@ -36,8 +40,8 @@ function deleteOrders() {
 
 // Returns a html table with all contents of order array
 function createOrderTable(orders) {
-    let table = "<table> <tr><th>Movie:</th><th>Number:</th><th>First Name:</th><th>Last Name:</th><th>Phone number:</th><th>Email:</th></tr>";
-
+    let table = "<table> <tr><th>Movie:</th><th>Number:</th><th>First Name:</th>" +
+                       "<th>Last Name:</th><th>Phone number:</th><th>Email:</th></tr>";
     for (let order of orders) {
         table += "<tr><td>" + order.movie + "</td><td>" + order.number + "</td><td>" + order.firstName + "</td><td>" + order.lastName + "</td><td>" + order.phoneNumber + "</td><td>" + order.email + "</td></tr>";
     }
@@ -45,5 +49,4 @@ function createOrderTable(orders) {
     table += "<table>"
 
     return table;
-
 }
