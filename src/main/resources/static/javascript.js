@@ -1,7 +1,6 @@
 
 let orders = [];
 function summitOrder() {
-    let validatonOk = true;
 
     // Reads input fields in to an object
     let order = {
@@ -13,68 +12,8 @@ function summitOrder() {
        email : document.getElementById("email").value
     }
 
-    // movie validation
-    if (order.movie === "") {
-        document.getElementById("movie-error").innerText = "Required field";
-        validatonOk = false;
-    } else {
-        document.getElementById("movie-error").innerText = "";
-    }
-
-    // number validation
-    if (order.number === "") {
-        document.getElementById("number-error").innerText = "Required field";
-        validatonOk = false;
-    } else if (isNaN(Number(order.number))) {
-        document.getElementById("number-error").innerText = "Must be a Number";
-        validatonOk = false;
-    } else {
-        document.getElementById("number-error").innerText = "";
-    }
-
-    // First name validation
-    if (order.firstName === "") {
-        document.getElementById("first-name-error").innerText = "Required field";
-        validatonOk = false;
-    } else {
-        document.getElementById("first-name-error").innerText = "";
-    }
-
-    // Last name validation
-    if (order.lastName === "") {
-        document.getElementById("last-name-error").innerText = "Required field";
-        validatonOk = false;
-    } else {
-        document.getElementById("last-name-error").innerText = "";
-    }
-
-    // Phone number validation
-    if (order.phoneNumber === "") {
-        document.getElementById("phone-number-error").innerText = "Required field";
-        validatonOk = false;
-    } else if (isNaN(Number(order.phoneNumber))) {
-        document.getElementById("phone-number-error").innerText = "Must be a Number";
-        validatonOk = false;
-    } else if (order.phoneNumber.length !== 8) {
-        document.getElementById("phone-number-error").innerText = "Must be 8 numbers long";
-        validatonOk = false;
-    } else {
-        document.getElementById("phone-number-error").innerText = "";
-    }
-
-    // Email validation
-    const emailRe = /.+@[A-Za-z0-9]\..{2,}/
-    if (order.email === "") {
-        document.getElementById("email-error").innerText = "Required field";
-        validatonOk = false;
-    } else if (!emailRe.test(order.email)) {
-        document.getElementById("email-error").innerText = "Must be a valid email";
-        validatonOk = false;
-    } else {
-        document.getElementById("email-error").innerText = "";
-    }
-
-    if (validatonOk) {
+    // Validate order
+    if (validateOrder(order)) {
         orders.push(order);
 
         // Debug
@@ -86,6 +25,73 @@ function summitOrder() {
         // Clear input fields
         clearInputs()
     }
+}
+
+function validateOrder(order) {
+    let validationOk = true;
+
+    // movie validation
+    if (order.movie === "") {
+        document.getElementById("movie-error").innerText = "Required field";
+        validationOk = false;
+    } else {
+        document.getElementById("movie-error").innerText = "";
+    }
+
+    // number validation
+    if (order.number === "") {
+        document.getElementById("number-error").innerText = "Required field";
+        validationOk = false;
+    } else if (isNaN(Number(order.number))) {
+        document.getElementById("number-error").innerText = "Must be a Number";
+        validationOk = false;
+    } else {
+        document.getElementById("number-error").innerText = "";
+    }
+
+    // First name validation
+    if (order.firstName === "") {
+        document.getElementById("first-name-error").innerText = "Required field";
+        validationOk = false;
+    } else {
+        document.getElementById("first-name-error").innerText = "";
+    }
+
+    // Last name validation
+    if (order.lastName === "") {
+        document.getElementById("last-name-error").innerText = "Required field";
+        validationOk = false;
+    } else {
+        document.getElementById("last-name-error").innerText = "";
+    }
+
+    // Phone number validation
+    if (order.phoneNumber === "") {
+        document.getElementById("phone-number-error").innerText = "Required field";
+        validationOk = false;
+    } else if (isNaN(Number(order.phoneNumber))) {
+        document.getElementById("phone-number-error").innerText = "Must be a Number";
+        validationOk = false;
+    } else if (order.phoneNumber.length !== 8) {
+        document.getElementById("phone-number-error").innerText = "Must be 8 numbers long";
+        validationOk = false;
+    } else {
+        document.getElementById("phone-number-error").innerText = "";
+    }
+
+    // Email validation
+    const emailRe = /.+@[A-Za-z0-9]\..{2,}/
+    if (order.email === "") {
+        document.getElementById("email-error").innerText = "Required field";
+        validationOk = false;
+    } else if (!emailRe.test(order.email)) {
+        document.getElementById("email-error").innerText = "Must be a valid email";
+        validationOk = false;
+    } else {
+        document.getElementById("email-error").innerText = "";
+    }
+
+    if (validationOk) return true;
 }
 
 // Clear input fields
