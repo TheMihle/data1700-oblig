@@ -69,7 +69,7 @@ function validateOrder(order) {
     } else if (isNaN(Number(order.phoneNumber))) {
         document.getElementById("phone-number-error").innerText = "Must be a Number";
         validationOk = false;
-    } else if (order.phoneNumber.length !== 8) {
+    } else if (order.phoneNumber.length >=4 && order.phoneNumber.length <=13) {
         document.getElementById("phone-number-error").innerText = "Must be 8 numbers long";
         validationOk = false;
     } else {
