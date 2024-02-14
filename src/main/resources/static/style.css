@@ -60,6 +60,7 @@ button:active {
 .input-error {
     text-align: right;
     color: red;
+    padding-right: 0.5em;
 }
 
 .hidden {

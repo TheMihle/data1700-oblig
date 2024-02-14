@@ -1,6 +1,7 @@
 
 let orders = [];
 function summitOrder() {
+    let validatonOk = false;
 
     // Reads input fields in to an object
     let order = {
@@ -11,6 +12,50 @@ function summitOrder() {
        phoneNumber : document.getElementById("phone-number").value,
        email : document.getElementById("email").value
     }
+
+    if (order.movie === "") {
+        document.getElementById("movie-error").innerText = "Required field";
+    } else {
+        document.getElementById("movie-error").innerText = "";
+    }
+
+    if (order.number === "") {
+        document.getElementById("number-error").innerText = "Required field";
+    } else if (!isNaN(Number(order.number))) {
+        document.getElementById("number-error").innerText = "Must be a Number";
+    } else {
+        document.getElementById("number-error").innerText = "";
+    }
+
+    if (order.firstName === "") {
+        document.getElementById("first-name-error").innerText = "Required field";
+    } else {
+        document.getElementById("first-name").innerText = "";
+    }
+
+    if (order.lastName === "") {
+        document.getElementById("last-name-error").innerText = "Required field";
+    } else {
+        document.getElementById("last-name-error").innerText = "";
+    }
+
+    if (order.phoneNumber === "") {
+        document.getElementById("phone-number-error").innerText = "Required field";
+    } else if (!isNaN(Number(order.number))) {
+        document.getElementById("phone-number-error").innerText = "Must be a Number";
+    } else if (order.phoneNumber.length !== 8) {
+        document.getElementById("phone-number-error").innerText = "Must be 8 numbers long";
+    } else {
+        document.getElementById("phone-number-error").innerText = "";
+    }
+
+    if (order.email === "") {
+        document.getElementById("email-error").innerText = "Required field";
+    } else {
+        document.getElementById("email-error").innerText = "";
+    }
+
+
     orders.push(order);
 
     // Debug
@@ -20,7 +65,7 @@ function summitOrder() {
     document.getElementById("ticket-list").innerHTML = createOrderTable(orders);
 
     // Clear input fields
-    clearInputs()
+    // clearInputs()
 }
 
 // Clear input fields
