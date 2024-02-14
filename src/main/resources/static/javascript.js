@@ -13,9 +13,6 @@ function summitOrder() {
     }
     orders.push(order);
 
-    // Debug
-    console.log(order);
-
     // Writes array to website
     document.getElementById("ticket-list").innerHTML = createOrderTable(orders);
 
