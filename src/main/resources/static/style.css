@@ -30,20 +30,20 @@ label {
 }
 
 input {
-    padding: 0.2em;
+    padding: 0.3em;
     border-radius: 6px;
     width: 50%;
 }
 
 select {
-    padding: 0.2em;
+    padding: 0.3em;
     border-radius: 6px;
     width: 50%;
 }
 
 button {
     margin: 7px;
-    padding: 0.2em;
+    padding: 0.3em;
     border-radius: 6px;
     cursor: pointer;
 }
