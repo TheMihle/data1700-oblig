@@ -52,6 +52,16 @@ button:hover {
     filter: brightness(80%);
 }
 
-button:active{
+button:active {
     filter: brightness(60%);
+}
+
+/* Span for input error*/
+.input-error {
+    text-align: right;
+    color: red;
+}
+
+.hidden {
+    display: none;
 }
