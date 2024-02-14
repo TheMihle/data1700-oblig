@@ -25,6 +25,7 @@ function summitOrder() {
 
 // Clear input fields
 function clearInputs() {
+    document.getElementById("movie").value = "";
     document.getElementById("number").value = "";
     document.getElementById("first-name").value = "";
     document.getElementById("last-name").value = "";
