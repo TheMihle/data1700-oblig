@@ -42,6 +42,9 @@ function validateOrder(order) {
     } else if (isNaN(Number(order.number))) {
         document.getElementById("number-error").innerText = "Must be a Number";
         validationOk = false;
+    } else if (order.number <=0 || order.number >100) {
+        document.getElementById("number-error").innerText = "Must be between 1 and 100";
+        validationOk = false;
     } else {
         document.getElementById("number-error").innerText = "";
     }
