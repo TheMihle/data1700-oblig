@@ -72,15 +72,16 @@ function validateOrder(order) {
     } else if (isNaN(Number(order.phoneNumber))) {
         document.getElementById("phone-number-error").innerText = "Must be a Number";
         validationOk = false;
-    } else if (order.phoneNumber.length >=4 && order.phoneNumber.length <=13) {
-        document.getElementById("phone-number-error").innerText = "Must be 8 numbers long";
+    } else if (order.phoneNumber.length < 4 && order.phoneNumber.length > 13) {
+        console.log(order.phoneNumber.length)
+        document.getElementById("phone-number-error").innerText = "Must be between 4 and 13 numbers long";
         validationOk = false;
     } else {
         document.getElementById("phone-number-error").innerText = "";
     }
 
     // Email validation
-    const emailRe = /.+@[A-Za-z0-9]\..{2,}/
+    const emailRe = /^.+@[A-Za-z0-9]\.[A-Za-z0-9]{2,}$/
     if (order.email === "") {
         document.getElementById("email-error").innerText = "Required field";
         validationOk = false;
