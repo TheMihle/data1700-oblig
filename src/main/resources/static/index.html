@@ -36,11 +36,11 @@
         </label>
         <label> Phone Number
             <input type="tel" id="phone-number" placeholder="9876432" required
-                   pattern="[0-9]+" maxlength="4" minlength="13" title="Only use numbers">
+                   pattern="[0-9]+" minlength="4" maxlength="13" title="Only use numbers">
         </label>
         <label> Email
             <input type="email" id="email" placeholder="name@example.com" required
-                   pattern=".+@[A-Za-z0-9]+\..{2,}" title="Must be a valid email address, name@example.com">
+                   pattern=".+@[A-Za-z0-9]+\.[A-Za-z0-9]{2,}" title="Must be a valid email address, name@example.com">
         </label>
 
         <button type="submit" id="summit-order">Order</button>
