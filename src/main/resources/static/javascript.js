@@ -41,7 +41,8 @@ function createOrderTable(orders) {
     let table = "<table> <tr><th>Movie:</th><th>Number:</th><th>First Name:</th>" +
                        "<th>Last Name:</th><th>Phone number:</th><th>Email:</th></tr>";
     for (let order of orders) {
-        table += "<tr><td>" + order.movie + "</td><td>" + order.number + "</td><td>" + order.firstName + "</td><td>" + order.lastName + "</td><td>" + order.phoneNumber + "</td><td>" + order.email + "</td></tr>";
+        table += "<tr><td>" + order.movie + "</td><td>" + order.number + "</td><td>" + order.firstName +
+                 "</td><td>" + order.lastName + "</td><td>" + order.phoneNumber + "</td><td>" + order.email + "</td></tr>";
     }
 
     table += "<table>"
