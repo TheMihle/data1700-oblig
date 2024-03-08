@@ -6,54 +6,66 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="javascript.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
-<main>
-    <h1>Order cinema tickets</h1>
+<body class="bg-secondary">
+<main class="container">
+    <section class="row justify-content-center bg-light p-3 pt-4">
+        <h1 class="col-xl-6 col-lg-7 col-md-12">Order cinema tickets</h1>
+    </section>
+    <section class="row justify-content-center bg-light p-3">
 
 <!--    return false to stop the page from refreshing -->
-    <form onsubmit="summitOrder(); return false">
+        <form class="col-xl-6 col-lg-7 col-md-12" onsubmit="summitOrder(); return false">
+            <div class="form-group">
+                <label for="movie">Movie: </label>
+                <select class="form-control" id="movie" required>
+                    <option class="d-none" value="" selected disabled>Choose a movie</option>
+                    <option>Interstellar</option>
+                    <option>Arrival</option>
+                    <option>Captain Philips</option>
+                    <option>Everything Everywhere All At Once</option>
+                    <option>Parasite</option>
+                </select>
+            </div>
 
-        <label for="movie">Movie:
-            <select id="movie" required>
-                <option class="hidden" value="" selected disabled>Choose a movie</option>
-                <option>Interstellar</option>
-                <option>Arrival</option>
-                <option>Captain Philips</option>
-                <option>Everything Everywhere All At Once</option>
-                <option>Parasite</option>
-            </select>
-        </label>
+            <div class="form-group">
+                <label for="number"> Number of tickets </label>
+                <input type="text" class="form-control" id="number" placeholder="0" required inputmode="numeric"
+                       pattern="[1-9][0-9]{0,1}" title="Must be between 1 and 99">
+            </div>
+            <div class="form-group">
+                <label for="first-name"> First Name </label>
+                <input type="text" class="form-control" id="first-name" placeholder="First name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name"> Last Name </label>
+                <input type="text" class="form-control" id="last-name" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone-number"> Phone Number </label>
+                <input type="tel" class="form-control" id="phone-number" placeholder="9876432" required
+                       pattern="[0-9]+" minlength="4" maxlength="13" title="Only use numbers">
+            </div>
+            <div class="form-group">
+                <label for="email"> Email </label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required
+                       pattern=".+@[A-Za-z0-9]+\.[A-Za-z0-9]{2,}" title="Must be a valid email address, name@example.com">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="summit-order">Order</button>
+        </form>
+    </section>
 
-        <label> Number of tickets
-            <input type="text" id="number" placeholder="0" required inputmode="numeric"
-                   pattern="[1-9][0-9]{0,1}" title="Must be between 1 and 99" >
-        </label>
-        <label> First Name
-            <input type="text" id="first-name" placeholder="First name" required>
-        </label>
-        <label> Last Name
-            <input type="text" id="last-name"  placeholder="Last Name" required>
-        </label>
-        <label> Phone Number
-            <input type="tel" id="phone-number" placeholder="9876432" required
-                   pattern="[0-9]+" minlength="4" maxlength="13" title="Only use numbers">
-        </label>
-        <label> Email
-            <input type="email" id="email" placeholder="name@example.com" required
-                   pattern=".+@[A-Za-z0-9]+\.[A-Za-z0-9]{2,}" title="Must be a valid email address, name@example.com">
-        </label>
 
-        <button type="submit" id="summit-order">Order</button>
-    </form>
-
+    <section class="row justify-content-center bg-light p-3 pb-5">
 <!--    Area to show all orders and button delete them-->
-    <section class="output-area">
-        <h2>All Orders</h2>
+        <div class="col-md-12 output-area">
+            <h2>All Orders</h2>
 
-        <div id="ticket-list"></div>
+            <div id="ticket-list"></div>
 
-        <button onclick="deleteOrders()"> Delete all orders</button>
+            <button class="btn btn-danger" onclick="deleteOrders()"> Delete all orders</button>
+        </div>
     </section>
 </main>
 </body>
