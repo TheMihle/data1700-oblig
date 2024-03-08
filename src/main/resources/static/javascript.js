@@ -119,7 +119,7 @@ function deleteOrders() {
 
 // Returns a html table with all contents of order array
 function createOrderTable(orders) {
-    let table = "<table> <tr><th>Movie:</th><th>Number:</th><th>First Name:</th>" +
+    let table = "<table class='table table-striped table-bordered'> <tr><th>Movie:</th><th>Number:</th><th>First Name:</th>" +
                        "<th>Last Name:</th><th>Phone number:</th><th>Email:</th></tr>";
     for (let order of orders) {
         table += "<tr><td>" + order.movie + "</td><td>" + order.number + "</td><td>" + order.firstName +
