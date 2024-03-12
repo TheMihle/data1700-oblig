@@ -11,8 +11,8 @@
     <groupId>org.example</groupId>
     <artifactId>data1700-oblig-1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>data1700-oblig-1</name>
-    <description>data1700-oblig-1</description>
+    <name>data1700-oblig</name>
+    <description>data1700-oblig</description>
     <properties>
         <java.version>17</java.version>
     </properties>
