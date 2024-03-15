@@ -17,9 +17,10 @@ function summitOrder() {
     }
 
     // Send and receive data to backend
-    $.post("/summitOrder", order).done(() =>$.get("/getOrders", data => {
-        document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-    }))
+    $.post("/summitOrder", order).done(() =>{
+        $.get("/getOrders", data => {
+            document.getElementById("ticket-list").innerHTML = createOrderTable(data);
+    })})
 
     // Clear input fields
     clearInputs()
