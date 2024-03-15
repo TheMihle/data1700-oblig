@@ -36,8 +36,9 @@ function clearInputs() {
     document.getElementById("email").value = "";
 }
 
-// Deletes orders in array
+// Deletes currently stored orders
 function deleteOrders() {
+    $.post("/delete")
     document.getElementById("ticket-list").innerHTML = "";
 }
 
