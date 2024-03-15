@@ -18,7 +18,7 @@ function summitOrder() {
 
     // Validate order
     if (validateOrder(order)) {
-        document.getElementById("ticket-list").innerHTML = createOrderTable(orders);
+
     // Send and receive data to backend
     $.post("/summitOrder", order).done(() =>{
         $.get("/getOrders", data => {
