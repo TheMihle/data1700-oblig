@@ -53,10 +53,3 @@ function createOrderTable(orders) {
 
     return table;
 }
-
-// Test code
-function loadArray() {
-    $.get("/getOrders").then(data => {
-        document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-    })
-}
