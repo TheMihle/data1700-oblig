@@ -1,5 +1,9 @@
+// Run at page load to load orders on to the website
+$.get("/getOrders").then(data => {
+    document.getElementById("ticket-list").innerHTML = createOrderTable(data);
+})
 
-let orders = [];
+// Summiting an order
 function summitOrder() {
 
     // Reads input fields in to an object
@@ -11,10 +15,13 @@ function summitOrder() {
        phoneNumber : document.getElementById("phone-number").value,
        email : document.getElementById("email").value
     }
-    orders.push(order);
 
+    // Send and receive data to backend
+    $.post("/summitOrder", order)
     // Writes array to website
-    document.getElementById("ticket-list").innerHTML = createOrderTable(orders);
+    $.get("/getOrders", data => {
+        document.getElementById("ticket-list").innerHTML = createOrderTable(data);
+    })
 
     // Clear input fields
     clearInputs()
@@ -44,8 +51,14 @@ function createOrderTable(orders) {
         table += "<tr><td>" + order.movie + "</td><td>" + order.number + "</td><td>" + order.firstName +
                  "</td><td>" + order.lastName + "</td><td>" + order.phoneNumber + "</td><td>" + order.email + "</td></tr>";
     }
-
     table += "<table>"
 
     return table;
+}
+
+// Test code
+function loadArray() {
+    $.get("/getOrders").then(data => {
+        document.getElementById("ticket-list").innerHTML = createOrderTable(data);
+    })
 }
