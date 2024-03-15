@@ -17,12 +17,12 @@ public class CinemaController {
         orders.clear();
     }
 
-    @PostMapping("/sumit")
-    public void summit() {
-
+    @PostMapping("/summitOrder")
+    public void summit(Order order) {
+        orders.add(order);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getOrders")
     public List<Order> getList() {
         return orders;
     }
