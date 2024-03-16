@@ -1,4 +1,4 @@
-package org.example.data1700oblig1;
+package org.example.data1700oblig;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
