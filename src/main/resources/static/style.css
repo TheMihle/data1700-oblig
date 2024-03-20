@@ -2,10 +2,3 @@
 /*    font-family: Verdana, sans-serif;*/
 /*    background: #93b6f3;*/
 /*}*/
-
-/* Span for input error*/
-.input-error {
-    text-align: right;
-    color: red;
-    padding-right: 0.5em;
-}
