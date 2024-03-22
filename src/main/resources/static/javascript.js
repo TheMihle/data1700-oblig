@@ -1,7 +1,20 @@
-// Run at page load to load orders on to the website
+// Run at page load to load movies and orders on to the website
 $.get("/getOrders").then(data => {
     document.getElementById("ticket-list").innerHTML = createOrderTable(data);
 })
+$.get("/getMovies").then(data => {
+    populateMovies(data);
+})
+
+// Inserts array of movie as options in to movie dropdown
+function populateMovies(movies){
+   let html = "";
+    for (let movie of movies) {
+        html += "<option>" + movie + "</option>";
+    }
+    document.getElementById("movie").innerHTML += html;
+}
+
 
 // Summiting an order
 function summitOrder() {
