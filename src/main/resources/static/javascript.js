@@ -9,18 +9,17 @@ $.get("/getMovies").then(data => {
 // Inserts array of movie as options in to movie dropdown
 function populateMovies(movies){
    let html = "";
-    for (let movie of movies) {
+    for (const movie of movies) {
         html += "<option>" + movie + "</option>";
     }
     document.getElementById("movie").innerHTML += html;
 }
 
-
 // Summiting an order
 function summitOrder() {
 
     // Reads input fields in to an object
-    let order = {
+    const order = {
        movie : document.getElementById("movie").value,
        number : document.getElementById("number").value,
        firstName : document.getElementById("first-name").value,
@@ -36,7 +35,8 @@ function summitOrder() {
     $.post("/summitOrder", order).done(() =>{
         $.get("/getOrders", data => {
             document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-    })})
+        })
+    })
 
         // Clear input fields
         clearInputs()
@@ -132,11 +132,20 @@ function deleteOrders() {
 
 // Returns a html table with all contents of order array
 function createOrderTable(orders) {
-    let table = "<table class='table table-striped table-bordered'> <tr><th>Movie:</th><th>Number:</th><th>First Name:</th>" +
-                       "<th>Last Name:</th><th>Phone number:</th><th>Email:</th></tr>";
-    for (let order of orders) {
-        table += "<tr><td>" + order.movie + "</td><td>" + order.number + "</td><td>" + order.firstName +
-                 "</td><td>" + order.lastName + "</td><td>" + order.phoneNumber + "</td><td>" + order.email + "</td></tr>";
+    let table = "<table class='table table-striped table-bordered'><tr>" +
+                        "<th>Movie:</th>" +
+                        "<th>Number:</th>" +
+                        "<th>First Name:</th>" +
+                        "<th>Last Name:</th>" +
+                        "<th>Phone number:</th>" +
+                        "<th>Email:</th></tr>";
+    for (const order of orders) {
+        table += "<tr><td>" + order.movie +
+                 "</td><td>" + order.number +
+                 "</td><td>" + order.firstName +
+                 "</td><td>" + order.lastName +
+                 "</td><td>" + order.phoneNumber +
+                 "</td><td>" + order.email + "</td></tr>";
     }
     table += "<table>"
 
