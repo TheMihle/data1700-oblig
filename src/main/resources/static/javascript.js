@@ -92,7 +92,6 @@ function validateOrder(order) {
         document.getElementById("phone-number-error").innerText = "Must be a Number";
         validationOk = false;
     } else if (order.phoneNumber.length < 4 && order.phoneNumber.length > 13) {
-        console.log(order.phoneNumber.length)
         document.getElementById("phone-number-error").innerText = "Must be between 4 and 13 numbers long";
         validationOk = false;
     } else {
