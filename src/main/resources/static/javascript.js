@@ -55,13 +55,13 @@ function validateOrder(order) {
     }
 
     // number validation
-    if (order.number === "") {
+    if (order.amount === "") {
         document.getElementById("number-error").innerText = "Required field";
         validationOk = false;
-    } else if (isNaN(Number(order.number))) {
+    } else if (isNaN(Number(order.amount))) {
         document.getElementById("number-error").innerText = "Must be a Number";
         validationOk = false;
-    } else if (order.number <=0 || order.number >100) {
+    } else if (order.amount <=0 || order.amount >100) {
         document.getElementById("number-error").innerText = "Must be between 1 and 100";
         validationOk = false;
     } else {
