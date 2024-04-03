@@ -4,16 +4,16 @@ public class Order {
 
 //    Attributes
     private String movie;
-    private int number;
+    private int amount;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
 
 //    Constructors
-    public Order(String movie, int number, String firstName, String lastName, String phoneNumber, String email) {
+    public Order(String movie, int amount, String firstName, String lastName, String phoneNumber, String email) {
         this.movie = movie;
-        this.number = number;
+        this.amount = amount;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -29,12 +29,12 @@ public class Order {
         this.movie = movie;
     }
 
-    public int getNumber() {
-        return number;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public String getFirstName() {
