@@ -21,7 +21,7 @@ function summitOrder() {
     // Reads input fields in to an object
     const order = {
        movie : document.getElementById("movie").value,
-       number : document.getElementById("number").value,
+       amount : document.getElementById("amount").value,
        firstName : document.getElementById("first-name").value,
        lastName : document.getElementById("last-name").value,
        phoneNumber : document.getElementById("phone-number").value,
@@ -116,7 +116,7 @@ function validateOrder(order) {
 // Clear input fields
 function clearInputs() {
     document.getElementById("movie").value = "";
-    document.getElementById("number").value = "";
+    document.getElementById("amount").value = "";
     document.getElementById("first-name").value = "";
     document.getElementById("last-name").value = "";
     document.getElementById("phone-number").value = "";
@@ -133,14 +133,14 @@ function deleteOrders() {
 function createOrderTable(orders) {
     let table = "<table class='table table-striped table-bordered'><tr>" +
                         "<th>Movie:</th>" +
-                        "<th>Number:</th>" +
+                        "<th>Amount:</th>" +
                         "<th>First Name:</th>" +
                         "<th>Last Name:</th>" +
                         "<th>Phone number:</th>" +
                         "<th>Email:</th></tr>";
     for (const order of orders) {
         table += "<tr><td>" + order.movie +
-                 "</td><td>" + order.number +
+                 "</td><td>" + order.amount +
                  "</td><td>" + order.firstName +
                  "</td><td>" + order.lastName +
                  "</td><td>" + order.phoneNumber +
