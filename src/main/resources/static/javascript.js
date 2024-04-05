@@ -65,12 +65,14 @@ function createOrderTable(orders) {
                         "<th>Phone number:</th>" +
                         "<th>Email:</th></tr>";
     for (const order of orders) {
-        table += "<tr><td>" + order.movie +
-                 "</td><td>" + order.amount +
-                 "</td><td>" + order.firstName +
-                 "</td><td>" + order.lastName +
-                 "</td><td>" + order.phoneNumber +
-                 "</td><td>" + order.email + "</td></tr>";
+        table += "<tr>" +
+                `<td>${order.movie}</td>` +
+                `<td>${order.amount}</td>` +
+                `<td>${order.firstName}</td>` +
+                `<td>${order.lastName}</td>` +
+                `<td>${order.phoneNumber}</td>` +
+                `<td>${order.email}</td>` +
+                "</tr>";
     }
     table += "<table>"
 
