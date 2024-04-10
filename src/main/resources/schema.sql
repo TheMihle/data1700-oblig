@@ -1,0 +1,9 @@
+CREATE TABLE Orders (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    movie VARCHAR(64) NOT NULL,
+    amount SMALLINT NOT NULL,
+    firstName VARCHAR(64) NOT NULL,
+    lastName VARCHAR(64) NOT NULL,
+    phoneNumber VARCHAR(12) NOT NULL,
+    email VARCHAR(64) NOT NULL
+);

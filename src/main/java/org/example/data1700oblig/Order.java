@@ -20,6 +20,8 @@ public class Order {
         this.email = email;
     }
 
+    public Order(){};
+
 //    Getters and Setters
     public String getMovie() {
         return movie;
