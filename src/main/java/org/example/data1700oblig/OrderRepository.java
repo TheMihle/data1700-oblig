@@ -29,5 +29,10 @@ public class OrderRepository {
         db.update(sql);
     }
 
+    public List<Movie> getMovies() {
+        String sql = "SELECT title FROM Movies";
+        List<Movie> movies = db.query(sql, new BeanPropertyRowMapper(Movie.class));
+        return movies;
+    }
 
 }

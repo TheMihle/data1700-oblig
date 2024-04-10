@@ -10,7 +10,7 @@ $.get("/getMovies").then(data => {
 function populateMovies(movies){
    let html = "";
     for (const movie of movies) {
-        html += "<option>" + movie + "</option>";
+        html += "<option>" + movie.title + "</option>";
     }
     document.getElementById("movie").innerHTML += html;
 }
