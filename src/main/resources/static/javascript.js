@@ -125,7 +125,7 @@ function clearInputs() {
 
 // Deletes currently stored orders
 function deleteOrders() {
-    $.post("/delete")
+    $.post("/deleteOrders")
     document.getElementById("ticket-list").innerHTML = "";
 }
 
