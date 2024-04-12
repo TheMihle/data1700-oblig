@@ -1,10 +1,10 @@
 // Run at page load to load movies and orders on to the website
 $.get("/getOrders").then(data => {
     document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-})
+}).catch(() => errorMessagee("Could not reach server, try again later"))
 $.get("/getMovies").then(data => {
     populateMovies(data);
-})
+}).catch(() => errorMessagee("Could not reach server, try again later"))
 
 // Inserts array of movie as options in to movie dropdown
 function populateMovies(movies){
@@ -33,7 +33,7 @@ function summitOrder() {
         $.get("/getOrders", data => {
             document.getElementById("ticket-list").innerHTML = createOrderTable(data);
         })
-    })
+    }).catch(() => errorMessagee("Could not reach server, try again later"))
 
     // Clear input fields
     clearInputs()
@@ -51,7 +51,7 @@ function clearInputs() {
 
 // Deletes currently stored orders
 function deleteOrders() {
-    $.post("/deleteOrders")
+    $.post("/deleteOrders").catch(() => errorMessagee("Could not reach server, try again later"))
     document.getElementById("ticket-list").innerHTML = "";
 }
 
@@ -77,4 +77,14 @@ function createOrderTable(orders) {
     table += "<table>"
 
     return table;
+}
+
+function errorMessagee(error) {
+    document.getElementById("backend-error").style.display = "block"
+    document.getElementById("backend-error").innerText = error;
+}
+
+function clearErrorMessage() {
+    document.getElementById("backend-error").style.display = "none"
+    document.getElementById("backend-error").innerText = "";
 }
