@@ -19,7 +19,7 @@ public class OrderRepository {
     }
 
     public List<Order> getAllOrders() {
-        String sql = "SELECT * FROM Orders";
+        String sql = "SELECT * FROM Orders ORDER BY lastName";
         List<Order> Orders = db.query(sql,new BeanPropertyRowMapper(Order.class));
         return Orders;
     }
