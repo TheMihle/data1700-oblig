@@ -20,7 +20,7 @@ public class Order {
         this.email = email;
     }
 
-    public Order(){};
+    public Order(){}
 
 //    Getters and Setters
     public String getMovie() {

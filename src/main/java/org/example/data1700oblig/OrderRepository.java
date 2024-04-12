@@ -20,8 +20,7 @@ public class OrderRepository {
 
     public List<Order> getAllOrders() {
         String sql = "SELECT * FROM Orders ORDER BY lastName";
-        List<Order> Orders = db.query(sql,new BeanPropertyRowMapper(Order.class));
-        return Orders;
+        return db.query(sql,new BeanPropertyRowMapper<>(Order.class));
     }
 
     public void deleteOrders() {
@@ -31,8 +30,7 @@ public class OrderRepository {
 
     public List<Movie> getMovies() {
         String sql = "SELECT title FROM Movies";
-        List<Movie> movies = db.query(sql, new BeanPropertyRowMapper(Movie.class));
-        return movies;
+        return db.query(sql, new BeanPropertyRowMapper<>(Movie.class));
     }
 
 }
