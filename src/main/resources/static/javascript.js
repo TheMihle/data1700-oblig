@@ -32,8 +32,9 @@ function summitOrder() {
     $.post("/summitOrder", order).done(() =>{
         $.get("/getOrders", data => {
             document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-        })
+        }).catch(() => errorMessagee("Could not reach server, try again later"))
     }).catch(() => errorMessagee("Could not reach server, try again later"))
+
 
     // Clear input fields
     clearInputs()
@@ -51,7 +52,13 @@ function clearInputs() {
 
 // Deletes currently stored orders
 function deleteOrders() {
-    $.post("/deleteOrders").catch(() => errorMessagee("Could not reach server, try again later"))
+    // $.post("/deleteOrders").catch(() => errorMessagee("Could not reach server, try again later"))
+
+    fetch("/deleteOrders", {method: "DELETE"})
+        .then((response) => {
+            if (!response.ok) errorMessagee("Could not reach server, try again later")
+        })
+
     document.getElementById("ticket-list").innerHTML = "";
 }
 
