@@ -2,7 +2,8 @@ package org.example.data1700oblig;
 
 public class Order {
 
-//    Attributes
+    //    Attributes
+    private int id;
     private String movie;
     private int amount;
     private String firstName;
@@ -27,6 +28,13 @@ public class Order {
         return movie;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setMovie(String movie) {
         this.movie = movie;
     }

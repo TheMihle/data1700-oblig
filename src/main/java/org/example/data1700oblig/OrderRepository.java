@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -26,6 +27,11 @@ public class OrderRepository {
     public void deleteOrders() {
         String sql = "DELETE FROM Orders";
         db.update(sql);
+    }
+
+    public void deleteOrder(@RequestParam Integer id) {
+        String sql = "DELETE FROM Orders WHERE id = ?";
+        db.update(sql,id);
     }
 
     public List<Movie> getMovies() {

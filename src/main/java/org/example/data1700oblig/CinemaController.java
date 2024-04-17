@@ -31,4 +31,9 @@ public class CinemaController {
     public void deleteOrders() {
         repository.deleteOrders();
     }
+
+    @PostMapping("/deleteOrder")
+    public void deleteOrder(@RequestParam("id") int id) {
+        repository.deleteOrder(id);
+    }
 }
