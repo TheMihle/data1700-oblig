@@ -11,11 +11,7 @@ public class CinemaController {
     @Autowired
     private OrderRepository repository;
 
-    @PostMapping("/summitOrder")
-    public void summit(Order order) {
-        repository.saveOrder(order);
-    }
-
+//    GetMappings
     @GetMapping("/getOrders")
     public List<Order> getList() {
         return repository.getAllOrders();
@@ -26,6 +22,13 @@ public class CinemaController {
         return repository.getMovies();
     }
 
+//    PostMappings
+    @PostMapping("/summitOrder")
+    public void summit(Order order) {
+        repository.saveOrder(order);
+    }
+
+//    DeleteMappings
     @DeleteMapping("/deleteOrders")
     public void deleteOrders() {
         repository.deleteOrders();
