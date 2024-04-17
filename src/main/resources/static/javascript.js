@@ -62,6 +62,15 @@ function deleteOrders() {
     document.getElementById("ticket-list").innerHTML = "";
 }
 
+// Delete individual order based on ID
+function deleteOrder(id) {
+    $.post("/deleteOrder?id="+ id).done(() => {
+        $.get("/getOrders", data => {
+            document.getElementById("ticket-list").innerHTML = createOrderTable(data);
+        }).catch(() => errorMessagee("Could not reach server, try again later"))
+    })
+}
+
 // Returns a html table with all contents of order array
 function createOrderTable(orders) {
     let table = "<table class='table table-striped table-bordered'><tr>" +
@@ -70,7 +79,8 @@ function createOrderTable(orders) {
                         "<th>First Name:</th>" +
                         "<th>Last Name:</th>" +
                         "<th>Phone number:</th>" +
-                        "<th>Email:</th></tr>";
+                        "<th>Email:</th>" +
+                        "<th>Delete:</th></tr>";
     for (const order of orders) {
         table += "<tr>" +
                 `<td>${order.movie}</td>` +
@@ -79,6 +89,7 @@ function createOrderTable(orders) {
                 `<td>${order.lastName}</td>` +
                 `<td>${order.phoneNumber}</td>` +
                 `<td>${order.email}</td>` +
+                `<td><button class='btn btn-danger' onclick='deleteOrder(${order.id})'>Delete</button></td>` +
                 "</tr>";
     }
     table += "<table>"
@@ -86,11 +97,13 @@ function createOrderTable(orders) {
     return table;
 }
 
+// Displays error message on website
 function errorMessagee(error) {
     document.getElementById("backend-error").style.display = "block"
     document.getElementById("backend-error").innerText = error;
 }
 
+// Hides error message on website
 function clearErrorMessage() {
     document.getElementById("backend-error").style.display = "none"
     document.getElementById("backend-error").innerText = "";
