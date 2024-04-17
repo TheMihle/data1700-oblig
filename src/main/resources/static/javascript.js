@@ -44,6 +44,7 @@ function summitOrder() {
     }
 }
 
+// Checks if inputs are valid
 function validateOrder(order) {
     let validationOk = true;
 
