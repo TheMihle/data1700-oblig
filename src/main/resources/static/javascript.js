@@ -123,9 +123,6 @@ function clearInputs() {
 
 // Deletes currently stored orders
 function deleteOrders() {
-    // $.post("/deleteOrders").catch(() => errorMessagee("Could not reach server, try again later"))
-    // document.getElementById("ticket-list").innerHTML = "";
-
     fetch("/deleteOrders", {method: "DELETE"})
         .then((response) => {
             if (!response.ok) errorMessagee("Could not reach server, try again later")
@@ -139,12 +136,12 @@ function deleteOrder(id) {
         .then((response) => {
             if (!response.ok) errorMessagee("Could not reach server, try again later")
             else updateTable();
-    })
+        })
 }
 
 // Updates the table from server
 function updateTable() {
-    $.get("/getOrders", data => {
+    $.get("/getOrders").then(data => {
             document.getElementById("ticket-list").innerHTML = createOrderTable(data);
         }).catch(() => errorMessagee("Could not reach server, try again later"))
 }
