@@ -1,7 +1,5 @@
 // Run at page load to load movies and orders on to the website
-$.get("/getOrders").then(data => {
-    document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-}).catch(() => errorMessagee("Could not reach server, try again later"))
+updateTable()
 $.get("/getMovies").then(data => {
     populateMovies(data);
 }).catch(() => errorMessagee("Could not reach server, try again later"))
@@ -33,9 +31,7 @@ function summitOrder() {
 
     // Send and receive data to backend
     $.post("/summitOrder", order).done(() =>{
-        $.get("/getOrders", data => {
-            document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-        }).catch(() => errorMessagee("Could not reach server, try again later"))
+        updateTable()
     }).catch(() => errorMessagee("Could not reach server, try again later"))
 
 
@@ -128,22 +124,29 @@ function clearInputs() {
 // Deletes currently stored orders
 function deleteOrders() {
     // $.post("/deleteOrders").catch(() => errorMessagee("Could not reach server, try again later"))
+    // document.getElementById("ticket-list").innerHTML = "";
 
     fetch("/deleteOrders", {method: "DELETE"})
         .then((response) => {
             if (!response.ok) errorMessagee("Could not reach server, try again later")
+            else document.getElementById("ticket-list").innerHTML = "";
         })
-
-    document.getElementById("ticket-list").innerHTML = "";
 }
 
 // Delete individual order based on ID
 function deleteOrder(id) {
-    $.post("/deleteOrder?id="+ id).done(() => {
-        $.get("/getOrders", data => {
+    fetch("/deleteOrder?id=" + id, {method: "DELETE"})
+        .then((response) => {
+            if (!response.ok) errorMessagee("Could not reach server, try again later")
+            else updateTable();
+    })
+}
+
+// Updates the table from server
+function updateTable() {
+    $.get("/getOrders", data => {
             document.getElementById("ticket-list").innerHTML = createOrderTable(data);
         }).catch(() => errorMessagee("Could not reach server, try again later"))
-    })
 }
 
 // Returns a html table with all contents of order array
