@@ -13,6 +13,13 @@ function populateMovies(movies){
     document.getElementById("movie").innerHTML += html;
 }
 
+// Updates the table from server
+function updateTable() {
+    $.get("/getOrders").then(data => {
+            document.getElementById("ticket-list").innerHTML = createOrderTable(data);
+        }).catch(() => errorMessagee("Could not reach server, try again later"))
+}
+
 // Summiting an order
 function summitOrder() {
 
@@ -62,13 +69,6 @@ function deleteOrder(id) {
             if (!response.ok) errorMessagee("Could not reach server, try again later")
             else updateTable();
         })
-}
-
-// Updates the table from server
-function updateTable() {
-    $.get("/getOrders").then(data => {
-            document.getElementById("ticket-list").innerHTML = createOrderTable(data);
-        }).catch(() => errorMessagee("Could not reach server, try again later"))
 }
 
 // Returns a html table with all contents of order array
