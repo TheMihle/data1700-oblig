@@ -60,8 +60,10 @@ function deleteOrders() {
 
 // Delete individual order based on ID
 function deleteOrder(id) {
-    $.post("/deleteOrder?id="+ id).done(() => {
-        updateTable()
+    fetch("/deleteOrder?id=" + id, {method: "DELETE"})
+        .then((response) => {
+            if (!response.ok) errorMessagee("Could not reach server, try again later")
+            else updateTable();
     })
 }
 

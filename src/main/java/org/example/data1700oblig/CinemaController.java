@@ -26,13 +26,12 @@ public class CinemaController {
         return repository.getMovies();
     }
 
-//    @PostMapping("/deleteOrders")
     @DeleteMapping("/deleteOrders")
     public void deleteOrders() {
         repository.deleteOrders();
     }
 
-    @PostMapping("/deleteOrder")
+    @DeleteMapping("/deleteOrder")
     public void deleteOrder(@RequestParam("id") int id) {
         repository.deleteOrder(id);
     }
