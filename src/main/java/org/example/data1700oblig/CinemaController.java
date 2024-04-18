@@ -12,20 +12,30 @@ public class CinemaController {
     private OrderRepository repository;
 
 //    GetMappings
+    @GetMapping("/getMovies")
+    public List<Movie> getMovies() {
+        return repository.getMovies();
+    }
+
     @GetMapping("/getOrders")
     public List<Order> getList() {
         return repository.getAllOrders();
     }
 
-    @GetMapping("/getMovies")
-    public List<Movie> getMovies() {
-        return repository.getMovies();
+    @GetMapping("/getOrder")
+    public Order getOrder(@RequestParam("id") int id) {
+        return repository.getOrderById(id);
     }
 
 //    PostMappings
     @PostMapping("/summitOrder")
     public void summit(Order order) {
         repository.saveOrder(order);
+    }
+
+    @PostMapping("/updateOrder")
+    public void updateOrder(Order order) {
+        repository.updateOrder(order);
     }
 
 //    DeleteMappings

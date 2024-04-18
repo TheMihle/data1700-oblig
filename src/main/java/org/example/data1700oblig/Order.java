@@ -12,6 +12,16 @@ public class Order {
     private String email;
 
 //    Constructors
+    public Order(int id, String movie, int amount, String firstName, String lastName, String phoneNumber, String email) {
+        this.id = id;
+        this.movie = movie;
+        this.amount = amount;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
     public Order(String movie, int amount, String firstName, String lastName, String phoneNumber, String email) {
         this.movie = movie;
         this.amount = amount;
