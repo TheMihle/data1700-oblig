@@ -167,7 +167,6 @@ function updateOrder() {
 
     // Hides edit order form
     document.getElementById("update-form").style.display = "none"
-
 }
 
 // Clear input fields
