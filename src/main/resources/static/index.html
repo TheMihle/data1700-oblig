@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cinema website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="javascript.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -65,7 +66,7 @@
         <div class="col-md-12 output-area">
             <h2>All Orders</h2>
 
-            <div id="ticket-list"></div>
+            <div class="table-responsive" id="ticket-list"></div>
 
             <button class="btn btn-danger" onclick="deleteOrders()"> Delete all orders</button>
         </div>
