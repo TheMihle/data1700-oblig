@@ -169,6 +169,10 @@ function updateOrder() {
     document.getElementById("update-form").style.display = "none"
 }
 
+function cancelUpdate() {
+    document.getElementById("update-form").style.display = "none"
+}
+
 // Clear input fields
 function clearInputs() {
     document.getElementById("movie").value = "";
