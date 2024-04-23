@@ -33,8 +33,8 @@ public class CinemaController {
         repository.saveOrder(order);
     }
 
-    @PostMapping("/updateOrder")
-    public void updateOrder(Order order) {
+    @PutMapping("/updateOrder")
+    public void updateOrder(@RequestBody Order order) {
         repository.updateOrder(order);
     }
 

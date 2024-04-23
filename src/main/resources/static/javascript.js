@@ -162,14 +162,22 @@ function updateOrder() {
         email : document.getElementById("email-update").value
     }
 
-
     if (validateOrder(order, "-update")) {
-        $.post("/updateOrder", order).done(() => {
-            updateTable()
-        }).catch(() => errorMessagee("Could not reach server, try again later"))
-
-        // Hides edit order form
-        document.getElementById("update-form").style.display = "none"
+         // Sends order to update order on server
+         fetch("/updateOrder", {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        }).then(response => {
+            if (!response.ok) errorMessagee("Could not reach server, try again later");
+            // Hides edit order form
+            else {
+                updateTable()
+                document.getElementById("update-form").style.display = "none"
+            }
+        })
     }
 }
 
