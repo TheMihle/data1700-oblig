@@ -1,4 +1,5 @@
 // Run at page load to load movies and orders on to the website
+// Defer in HTML delays script execution until the end of DOM loading
 updateTable()
 $.get("/getMovies").then(data => {
     populateMovies(data);
