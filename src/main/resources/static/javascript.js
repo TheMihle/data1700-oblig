@@ -162,6 +162,7 @@ function updateOrder() {
         email : document.getElementById("email-update").value
     }
 
+    // Check if inputs are valid
     if (validateOrder(order, "-update")) {
          // Sends order to update order on server
          fetch("/updateOrder", {
