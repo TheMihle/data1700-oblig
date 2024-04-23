@@ -81,33 +81,38 @@
             <input class="d-none" id="id-update">
             <div class="form-group">
                 <label for="movie-update">Movie: </label>
-                <select class="form-control" id="movie-update" required>
+                <select class="form-control" id="movie-update">
                     <option class="d-none" value="" selected disabled>Choose a movie</option>
                 </select>
+                <span class="text-danger" id="movie-error-update"></span>
             </div>
 
             <div class="form-group">
                 <label for="amount"> Amount of tickets: </label>
-                <input type="text" class="form-control" id="amount-update" placeholder="0" required inputmode="numeric"
-                       pattern="[1-9][0-9]{0,1}" title="Must be between 1 and 99">
+                <input type="text" class="form-control" id="amount-update" placeholder="0" inputmode="numeric"
+                       title="Must be between 1 and 99">
+                <span class="text-danger" id="number-error-update"></span>
             </div>
             <div class="form-group">
                 <label for="first-name-update"> First Name: </label>
-                <input type="text" class="form-control" id="first-name-update" placeholder="First name" required>
+                <input type="text" class="form-control" id="first-name-update" placeholder="First name">
+                <span class="text-danger" id="first-name-error-update"></span>
             </div>
             <div class="form-group">
                 <label for="last-name-update"> Last Name: </label>
-                <input type="text" class="form-control" id="last-name-update" placeholder="Last Name" required>
+                <input type="text" class="form-control" id="last-name-update" placeholder="Last Name">
+                <span class="text-danger" id="last-name-error-update"></span>
             </div>
             <div class="form-group">
                 <label for="phone-number"> Phone Number: </label>
-                <input type="tel" class="form-control" id="phone-number-update" placeholder="9876432" required
-                       pattern="[0-9]+" minlength="4" maxlength="13" title="Only use numbers">
+                <input type="tel" class="form-control" id="phone-number-update" placeholder="9876432" title="Only use numbers">
+                <span class="text-danger" id="phone-number-error-update"></span>
             </div>
             <div class="form-group">
                 <label for="email-update"> Email: </label>
-                <input type="email" class="form-control" id="email-update" placeholder="name@example.com" required
-                       pattern=".+@[A-Za-z0-9]+\.[A-Za-z0-9]{2,}" title="Must be a valid email address, name@example.com">
+                <input type="email" class="form-control" id="email-update" placeholder="name@example.com"
+                       title="Must be a valid email address, name@example.com">
+                <span class="text-danger" id="email-error-update"></span>
             </div>
             <button type="submit" class="btn btn-success btn-block" id="summit-order-update">Update Order</button>
             <button type="reset"   class="btn btn-danger btn-block" id="cancel-order-update" onclick="cancelUpdate()">Cancel</button>

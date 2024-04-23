@@ -36,12 +36,12 @@ function summitOrder() {
     }
 
     // Validate order
-    if (validateOrder(order)) {
+    if (validateOrder(order, "")) {
 
-    // Send and receive data to backend
-    $.post("/summitOrder", order).done(() =>{
-        updateTable()
-    }).catch(() => errorMessagee("Could not reach server, try again later"))
+        // Send and receive data to backend
+        $.post("/summitOrder", order).done(() =>{
+            updateTable()
+        }).catch(() => errorMessagee("Could not reach server, try again later"))
 
 
         // Clear input fields
@@ -50,71 +50,71 @@ function summitOrder() {
 }
 
 // Checks if inputs are valid
-function validateOrder(order) {
+function validateOrder(order, id) {
     let validationOk = true;
 
     // movie validation
     if (order.movie === "") {
-        document.getElementById("movie-error").innerText = "Required field";
+        document.getElementById("movie-error" + id).innerText = "Required field";
         validationOk = false;
     } else {
-        document.getElementById("movie-error").innerText = "";
+        document.getElementById("movie-error" + id).innerText = "";
     }
 
     // number validation
     if (order.amount === "") {
-        document.getElementById("number-error").innerText = "Required field";
+        document.getElementById("number-error" + id).innerText = "Required field";
         validationOk = false;
     } else if (isNaN(Number(order.amount))) {
-        document.getElementById("number-error").innerText = "Must be a Number";
+        document.getElementById("number-error" + id).innerText = "Must be a Number";
         validationOk = false;
     } else if (order.amount <=0 || order.amount >100) {
-        document.getElementById("number-error").innerText = "Must be between 1 and 100";
+        document.getElementById("number-error" + id).innerText = "Must be between 1 and 100";
         validationOk = false;
     } else {
-        document.getElementById("number-error").innerText = "";
+        document.getElementById("number-error" + id).innerText = "";
     }
 
     // First name validation
     if (order.firstName === "") {
-        document.getElementById("first-name-error").innerText = "Required field";
+        document.getElementById("first-name-error" + id).innerText = "Required field";
         validationOk = false;
     } else {
-        document.getElementById("first-name-error").innerText = "";
+        document.getElementById("first-name-error" + id).innerText = "";
     }
 
     // Last name validation
     if (order.lastName === "") {
-        document.getElementById("last-name-error").innerText = "Required field";
+        document.getElementById("last-name-error" + id).innerText = "Required field";
         validationOk = false;
     } else {
-        document.getElementById("last-name-error").innerText = "";
+        document.getElementById("last-name-error" + id).innerText = "";
     }
 
     // Phone number validation
     if (order.phoneNumber === "") {
-        document.getElementById("phone-number-error").innerText = "Required field";
+        document.getElementById("phone-number-error" + id).innerText = "Required field";
         validationOk = false;
     } else if (isNaN(Number(order.phoneNumber))) {
-        document.getElementById("phone-number-error").innerText = "Must be a Number";
+        document.getElementById("phone-number-error" + id).innerText = "Must be a Number";
         validationOk = false;
     } else if (order.phoneNumber.length < 4 && order.phoneNumber.length > 13) {
-        document.getElementById("phone-number-error").innerText = "Must be between 4 and 13 numbers long";
+        document.getElementById("phone-number-error"  + id).innerText = "Must be between 4 and 13 numbers long";
         validationOk = false;
     } else {
-        document.getElementById("phone-number-error").innerText = "";
+        document.getElementById("phone-number-error"  + id).innerText = "";
     }
 
     // Email validation
     const emailRe = /^.+@[A-Za-z0-9]\.[A-Za-z0-9]{2,}$/
     if (order.email === "") {
-        document.getElementById("email-error").innerText = "Required field";
+        document.getElementById("email-error" + id).innerText = "Required field";
         validationOk = false;
     } else if (!emailRe.test(order.email)) {
-        document.getElementById("email-error").innerText = "Must be a valid email";
+        document.getElementById("email-error" + id).innerText = "Must be a valid email";
         validationOk = false;
     } else {
-        document.getElementById("email-error").innerText = "";
+        document.getElementById("email-error" + id).innerText = "";
     }
 
     if (validationOk) return true;
@@ -162,12 +162,15 @@ function updateOrder() {
         email : document.getElementById("email-update").value
     }
 
-    $.post("/updateOrder", order).done(() =>{
-        updateTable()
-    }).catch(() => errorMessagee("Could not reach server, try again later"))
 
-    // Hides edit order form
-    document.getElementById("update-form").style.display = "none"
+    if (validateOrder(order, "-update")) {
+        $.post("/updateOrder", order).done(() => {
+            updateTable()
+        }).catch(() => errorMessagee("Could not reach server, try again later"))
+
+        // Hides edit order form
+        document.getElementById("update-form").style.display = "none"
+    }
 }
 
 function cancelUpdate() {
