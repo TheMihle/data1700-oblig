@@ -1,4 +1,4 @@
-Data1700 Oblig
+# Data1700 Oblig: Cinema ticket ordering website
 
 This is a concept web application for order cinema tickets using Spring Boot, Bootstrap, HTML, JS, JDBC, SQL and Java.
 The orders are input validated and sent to the backend java REST controller and then sent to H2 database with JDBC.
