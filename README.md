@@ -11,6 +11,7 @@ JS  input Validation in "js-validation" branch
 (Not sure what of them is the best)
 
 Youtube video showing that it works: https://youtu.be/k-QkxJMnKZU
+
 Github Repo link: https://github.com/TheMihle/data1700-oblig
 
 Changed Github account and somehow an extra symbol before the email in git so first commits is not attributed to the 
