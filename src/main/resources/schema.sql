@@ -12,11 +12,3 @@ CREATE TABLE IF NOT EXISTS `Movies` (
     `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
     `title` VARCHAR(128) NOT NULL
 );
-
-INSERT INTO Movies (`title`) VALUES ('Interstellar'),
-        ('Arrival'),
-        ('Captain Philips'),
-        ('Everything Everywhere All At Once'),
-        ('Parasite'),
-        ('Dune: Part one'),
-        ('Dune: Part two');
