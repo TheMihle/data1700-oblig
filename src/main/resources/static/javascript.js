@@ -76,8 +76,12 @@ function validateOrder(order, id) {
     }
 
     // First name validation
+    nameRegEx = /^[a-zæøå\-.,' ]+$/i
     if (order.firstName === "") {
         document.getElementById("first-name-error" + id).innerText = "Required field";
+        validationOk = false;
+    } else if (!nameRegEx.test(order.firstName)) {
+        document.getElementById("first-name-error" + id).innerText = "Illegal Characters";
         validationOk = false;
     } else {
         document.getElementById("first-name-error" + id).innerText = "";
@@ -86,6 +90,9 @@ function validateOrder(order, id) {
     // Last name validation
     if (order.lastName === "") {
         document.getElementById("last-name-error" + id).innerText = "Required field";
+        validationOk = false;
+    } else if (!nameRegEx.test(order.lastName)) {
+        document.getElementById("last-name-error" + id).innerText = "Illegal Characters";
         validationOk = false;
     } else {
         document.getElementById("last-name-error" + id).innerText = "";
@@ -106,11 +113,11 @@ function validateOrder(order, id) {
     }
 
     // Email validation
-    const emailRe = /^.+@[A-Za-z0-9]\.[A-Za-z0-9]{2,}$/
+    const emailRegEx = /^[a-z0-9\-_.+]+@[a-z0-9]+\.[a-z0-9]{2,4}$/i
     if (order.email === "") {
         document.getElementById("email-error" + id).innerText = "Required field";
         validationOk = false;
-    } else if (!emailRe.test(order.email)) {
+    } else if (!emailRegEx.test(order.email)) {
         document.getElementById("email-error" + id).innerText = "Must be a valid email";
         validationOk = false;
     } else {
