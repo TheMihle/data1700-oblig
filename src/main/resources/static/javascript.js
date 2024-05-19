@@ -222,6 +222,7 @@ function deleteOrder(id) {
 }
 
 // Returns a html table with all contents of order array
+// Template literal/strings
 function createOrderTable(orders) {
     let table = "<table class='table table-striped table-bordered'><tr>" +
                         "<th>Movie:</th>" +
